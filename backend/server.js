@@ -13,10 +13,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
-const client = new S3Client({
-  region: "eu-north-1",
+const s3Client = new S3Client({
+  region: "eu-north-1", //bucket region
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
@@ -25,7 +25,7 @@ const client = new S3Client({
 
 const createPresignedUrlWithClient = ({ bucket, key }) => {
   const command = new PutObjectCommand({ Bucket: bucket, Key: key });
-  return getSignedUrl(client, command, { expiresIn: 3600 });
+  return getSignedUrl(s3Client, command, { expiresIn: 3600 });
 };
 
 app.post("/api/get-presigned-url", async (req, res) => {

@@ -1,11 +1,35 @@
 services:
-   mongo:
+   db:
      image: mongo
-     restart: always
      ports:
        - 27017:27017
      environment:
        - MONGO_INITDB_ROOT_USERNAME=root
        - MONGO_INITDB_ROOT_PASSWORD=example
      volumes:
-       - ./data:/data/db
+       - mongo-data:/data/db
+
+   backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile.backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    env_file:
+      - ./backend/.env
+
+   frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    env_file:
+      - ./frontend/.env
+
+volumes:
+  mongo-data:
