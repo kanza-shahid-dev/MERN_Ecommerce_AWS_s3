@@ -7,13 +7,20 @@ import { v4 as uuidv4 } from "uuid";
 import dotenv from "dotenv";
 import { Product } from "./model/product.model.js";
 import connectToDB from "./db/dbConnect.js";
+import Stripe from "stripe";
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+  })
+);
 
 const PORT = process.env.PORT || 5001;
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const s3Client = new S3Client({
   region: "eu-north-1", //bucket region
