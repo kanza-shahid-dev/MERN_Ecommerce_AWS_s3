@@ -1,6 +1,6 @@
 # 🛍️ MERN Ecommerce (AWS S3 + Cloudflare CDN)
 
-A full-stack **Ecommerce web application** built with the **MERN stack (MongoDB, Express, React, Node.js)** — featuring **secure image uploads to AWS S3**, global asset delivery via **Cloudflare CDN**, and a fully functional shopping experience with authentication, cart, payments, and admin management.
+A full-stack **Ecommerce web application** built with the **MERN stack (MongoDB, Express, Next.js, Node.js)** — featuring **secure image uploads to AWS S3**, global asset delivery via **Cloudflare CDN**, and a fully functional shopping experience with authentication, cart, payments, and admin management.
 
 ---
 
@@ -9,7 +9,7 @@ A full-stack **Ecommerce web application** built with the **MERN stack (MongoDB,
 All product images and user uploads are securely stored in **Amazon S3**.
 
 
-### 🧑‍💻 Frontend (React + Vite / CRA)
+### 🧑‍💻 Frontend (Next.js)
 - Responsive UI for all devices
 - Product listing, filtering, and search
 - Files are uploaded using the **AWS SDK**.
