@@ -4,10 +4,6 @@ A full-stack **Ecommerce web application** built with the **MERN stack (MongoDB,
 
 ---
 
-## 🚀 Features
-
-
-## ☁️ Cloud Integration
 
 ### 🪣 AWS S3 Storage
 All product images and user uploads are securely stored in **Amazon S3**.
