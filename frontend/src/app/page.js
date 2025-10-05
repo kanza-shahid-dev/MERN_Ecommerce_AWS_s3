@@ -41,7 +41,7 @@ export default function Home() {
                 <Image
                   src={`https://d37xugx0cbq6o9.cloudfront.net/${product.filename}`}
                   width={100}
-                  height={200}
+                  height={100}
                   alt={product.filename}
                   className="w-full h-full object-cover hover:scale-105 transition"
                 />
